@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Django blog</title>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:ǓǏǏ"
+        rel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1><a href="{% url 'home' %}">Django blog</a></h1>
+            <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        </header>
+            Chapter 5: Blog app 108
+        <div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+</html>
