@@ -8,8 +8,6 @@
         ╚═╝     ╚═╝  ╚═╝╚═╝ ╚═════╝     ╚══╝╚══╝ ╚══════╝╚═════╝ ╚══════╝╚═╝   ╚═╝   ╚══════╝
 
 ```
-hungdeptrai
-vl
 
 ## :robot: Backend development branch
 
