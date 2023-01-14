@@ -8,10 +8,14 @@
         ╚═╝     ╚═╝  ╚═╝╚═╝ ╚═════╝     ╚══╝╚══╝ ╚══════╝╚═════╝ ╚══════╝╚═╝   ╚═╝   ╚══════╝
 
 ```
-tudeptrai
 
 ## :robot: Backend development branch
 
+### :hammer_and_wrench: Requirements
+
+- python == 3.11
+
+### :package: Installation
 - :octocat: Clone the repo and change to branch remotes/origin/back_end_develop
 
 ```sh
