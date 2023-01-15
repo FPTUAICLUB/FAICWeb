@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="{% static 'home/style.css'' %}">
+    <link rel="stylesheet" href="{% static 'home/css/style.css'' %}">
 
 </head>
 
@@ -27,12 +27,10 @@
         <a href="{% url 'home:index' %}" class="logo"><span>FPT</span> AI Club</a>
 
         <nav class="navbar">
-            <a href="{% url 'home:index' %}">Trang chủ</a>
-            <a href="#book">Tin tức</a>
-            <a href="#">VIP</a>
-            <a href="#services">Dịch vụ</a>
+            <a href="{% url 'home:index' %}">Home</a>
+            <a href="{% url 'about:index' %}">About</a>
             <a href="{% url 'blog:index' %}">Blogs</a>
-            <a href="#">Liên hệ</a>
+            <a href="{% url 'contact:index' %}">Contact</a>
         </nav>
 
         <div class="icons">
