@@ -1,5 +1,10 @@
-/ai_web/ai_web/secret_key.py
-/ai_web/ai_web/__pycache__/
-/ai_web/home/__pycache__/
-/ai_web/home/migrations/__pycache__/
-
+about/__pycache__/
+about/migrations/__pycache__/
+ai_web/__pycache__/
+blog/__pycache__/
+blog/migrations/__pycache__/
+contact/__pycache__/
+contact/migrations/__pycache__/
+home/__pycache__/
+home/migrations/__pycache__/
+ai_web/secret_key.py

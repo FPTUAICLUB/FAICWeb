@@ -1,0 +1,30 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block contact_response %}
+<style>
+    .hero {
+        min-height: 100vh;
+        width: 100%;
+        background: #000;
+        background-image: url(https://static.wixstatic.com/media/5cfe14_30977ca5f4d04cc2a8977a980baf19a9~mv2.gif);
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #fff;
+        background-size: cover;
+    }
+
+    .btn:hover {
+        background: #fff;
+        color: #000;
+    }
+</style>
+<div class="hero">
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Thanks for your idea!</h3>
+            <p>Have a good day</p>
+            <a href="https://www.facebook.com/aiclub.fptu" class="btn">Want to know more?</a>
+        </div>
+    </section>
+</div>
+{% endblock %}
