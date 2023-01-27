@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Blog | FAIC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+
+<body>
+
+    <!-- header -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="{% url 'home:index' %}" class="navbar-brand">FPTU AI CLUB</a>
+                <div class="navbar-nav">
+                    <a href="{% url 'home:index' %}">Home</a>
+                    <a href="{% url 'about:index' %}">About</a>
+                    <a href="{% url 'blog:index' %}">Blogs</a>
+                    <a href="{% url 'contact:index' %}">Contact</a>
+                </div>
+            </div>
+        </nav>
+        {% block header %}
+        {% endblock header %}
+    </header>
+
+</body>
+</html>
