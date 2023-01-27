@@ -1,51 +1,22 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    {% load static %}
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Blog | FAIC</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font awesome icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
-</head>
-
-<body>
-
-    <!-- header -->
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a href="{% url 'home:index' %}" class="navbar-brand">FPTU AI CLUB</a>
-                <div class="navbar-nav">
-                    <a href="{% url 'home:index' %}">Home</a>
-                    <a href="{% url 'about:index' %}">About</a>
-                    <a href="{% url 'blog:index' %}">Blogs</a>
-                    <a href="{% url 'contact:index' %}">Contact</a>
-                </div>
-            </div>
-        </nav>
-        <div class="banner">
-            <div class="container">
-                <h1 class="banner-title">
-                    <span>FAIC's</span> Blog
-                </h1>
-                <p>Everything that you want to know about artificial intelligence</p>
-                <form>
-                    <input type="text" class="search-input" placeholder="find your favorite blog here . . .">
-                    <button type="submit" class="search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </header>
-    <!-- end of header -->
-
+{% extends "blog/_base.html" %}
+{% block title %}Blog | FAIC {% endblock %}
+{% block header %}
+<div class="banner">
+    <div class="container">
+        <h1 class="banner-title">
+            <span>FAIC's</span> Blog
+        </h1>
+        <p>Everything that you want to know about artificial intelligence</p>
+        <form>
+            <input type="text" class="search-input" placeholder="find your favorite blog here . . .">
+            <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock header %}
+{% block content %}
     <!-- design -->
     <section class="design" id="design">
         <div class="container">
@@ -58,6 +29,7 @@
                 <!-- item -->
                 <div class="design-item">
                     <div class="design-img">
+                        {% load static %}
                         <img src="{% static 'blog/images/art-design-1.jpg' %}" alt="">
                         <span><i class="far fa-heart"></i> 22</span>
                         <span>Art & Design</span>
@@ -276,8 +248,4 @@
         </div>
     </footer>
     <!-- end of footer -->
-
-
-</body>
-
-</html>
+{% endblock content %}
