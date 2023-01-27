@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "home.apps.HomeConfig",
     "blog.apps.BlogConfig",
     "about.apps.AboutConfig",
-    "contact.apps.ContactConfig"
+    "contact.apps.ContactConfig",
 ]
 
 MIDDLEWARE = [
@@ -111,9 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = "en-us"
 
 LANGUAGES = [
-    ('de', _('German')),
-    ('en', _('English')),
-    ('vi', _('Vietnam')),
+    ("de", _("German")),
+    ("en", _("English")),
+    ("vi", _("Vietnam")),
 ]
 
 TIME_ZONE = "UTC"
