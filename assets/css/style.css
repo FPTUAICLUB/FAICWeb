@@ -1,0 +1,103 @@
+/*Reset Css */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family:Helvetica, Arial, sans-serif ;
+}
+
+#main {
+
+}
+
+#header {
+    position: sticky;
+    top: 0;
+    height: 46px;
+    padding: 8px 16px;
+    background-color:#e1e2e7;
+}
+
+.nav-right,
+#nav-center,
+.nav-left {
+    display: inline-block;
+    position:relative;
+}
+
+.nav-right a, #subnav,
+#nav-center li a,
+.nav-left #brand-name {
+    display: block;
+    text-decoration: none;
+    line-height: 30px;
+    color: #000000;
+    list-style-type: none;
+}
+
+#brand-name .robot {
+    font-size: 24px;
+    color: #f79520;
+}
+
+.nav-right #language-butt,
+.nav-right #dark-light-mode,
+#nav-center > li {
+    /* position: relative; */
+    display: inline-block;
+    /* float: right; */
+}
+
+#nav-center li a {
+    padding: 0 32px;
+}
+
+.nav-right #subnav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 30%;
+    min-width: 160px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-right #language-butt:hover #subnav {
+    display: block;
+}
+
+#language-butt #subnav li:hover a{
+    color: #bb9af7;
+    background-color: #f2f2f2;
+}
+
+
+.nav-right #language-butt:hover,
+.nav-left #brand-name:hover,
+#nav-center li:hover > a {
+    color: #bb9af7;
+}
+
+#dark-light-mode .sun-icon {
+    font-size: 20px;
+    padding: 0 16px;
+    cursor: pointer; 
+}
+
+#dark-light-mode .sun-icon:hover {
+    color: #bb9af7;
+}
+
+#content {
+    /* display: none; */
+    /* margin-top: 46px; */
+    min-height: 1000px;
+    background-color: #ccc;
+}
+
+#footer {
+
+}
