@@ -92,7 +92,7 @@ html {
 }
 
 #content {
-    /* display: none; */
+    display: none;
     /* margin-top: 46px; */
     min-height: 1000px;
     background-color: #ccc;
