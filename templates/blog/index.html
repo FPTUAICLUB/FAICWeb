@@ -1,5 +1,6 @@
 {% extends "blog/_base.html" %}
-{% block title %}Blog | FAIC {% endblock %}
+{% load static %}
+{% block title %}Blog | FAIC {% endblock title %}
 {% block header %}
 <div class="banner">
     <div class="container">
@@ -29,7 +30,6 @@
                 <!-- item -->
                 <div class="design-item">
                     <div class="design-img">
-                        {% load static %}
                         <img src="{% static 'blog/images/art-design-1.jpg' %}" alt="">
                         <span><i class="far fa-heart"></i> 22</span>
                         <span>Art & Design</span>
