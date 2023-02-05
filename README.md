@@ -9,7 +9,7 @@
 
 ```
 
-## :robot: Backend development branch
+## :robot: Front-end nightly branch
 
 ### :hammer_and_wrench: Requirements
 
