@@ -16,6 +16,7 @@
 - python == 3.11
 
 ### :package: Installation
+
 - :octocat: Clone the repo and change to branch remotes/origin/back_end_develop
 
 ```sh
@@ -32,8 +33,16 @@ pipenv install --dev
 pipenv shell
 ```
 
-- :rocket: Start to develop
+### :rocket: Development
+
+__Start a development server__
 
 ```py
 python manage.py runserver
+```
+
+__Running test cases: (Open in root directory to run all the tests)__
+
+```py
+python manage.py test
 ```
