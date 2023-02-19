@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+handler400 = "ai_web.views.custom_bad_request_view"
+handler403 = "ai_web.views.custom_permission_denied_view"
+handler404 = "ai_web.views.custom_page_not_found_view"
+handler500 = "ai_web.views.custom_server_error_view"
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("blog/", include("blog.urls")),
