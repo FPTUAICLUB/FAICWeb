@@ -37,8 +37,10 @@ pipenv shell
 
 __Start a development server__
 
+The `--insecure` attribute allows loading static files in development when `debug = False`
+
 ```py
-python manage.py runserver
+python manage.py runserver --insecure
 ```
 
 __Running test cases: (Open in root directory to run all the tests)__
