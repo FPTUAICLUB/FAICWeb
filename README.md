@@ -22,7 +22,7 @@
 ```sh
 git clone https://github.com/FPTUAICLUB/AI-Web.git
 cd AI-Web
-git checkout remotes/origin/back_end_develop
+git checkout remotes/origin/front_end_nightly
 ```
 
 - :wrench: Install dependencies and initialize environment
@@ -37,8 +37,10 @@ pipenv shell
 
 __Start a development server__
 
+The `--insecure` attribute allows loading static files in development when `debug = False`
+
 ```py
-python manage.py runserver
+python manage.py runserver --insecure
 ```
 
 __Running test cases: (Open in root directory to run all the tests)__
