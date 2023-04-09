@@ -17,3 +17,6 @@ class HomepageTests(SimpleTestCase):
 
     def test_loginpage_status_code(self):
         self.assertEqual(self.login_response.status_code, 200)
+
+    def test_loginpage_template(self):
+        self.assertTemplateUsed(self.login_response, "home/login.html")
