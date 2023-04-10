@@ -17,6 +17,8 @@ from django.utils.translation import gettext_lazy as _
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+ENVIRONMENT = os.environ.get('ENVIRONMENT', default="development")
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -139,3 +141,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATICFILES_DIRS = [
     BASE_DIR / "static/",
 ]
+
+# production
+if ENVIRONMENT == 'production':
+    DEBUG = False
+    SECURE_BROWSER_XSS_FILTER = True # prevent cross-site scripting(XSS) attack
+    X_FRAME_OPTIONS = 'DENY' # prevent clickjacking attack
+    SECURE_SSL_REDIRECT = True # force all non-HTTPS traffic to be redirected to HTTPS

@@ -35,7 +35,7 @@
 
         <div class="icons">
             <i class="fas fa-search" id="search-btn"></i>
-            <a class='login' href="#"><i class="fas fa-user" id="login-btn"></i></a>
+            <a class='login' href="{% url 'home:login' %}"><i class="fas fa-user" id="login-btn"></i></a>
             <form action="" class="search-bar-container">
                 <input type="search" id="search-bar" placeholder="search here...">
                 <label for="search-bar" class="fas fa-search"></label>
@@ -47,22 +47,6 @@
 
     <!-- login form container  -->
 
-    <div class="login-form-container">
-
-        <i class="fas fa-times" id="form-close"></i>
-
-        <form action="">
-            <h3>Đăng nhập</h3>
-            <input type="email" class="box" placeholder="email">
-            <input type="password" class="box" placeholder="mật khẩu">
-            <input type="submit" value="login now" class="btn">
-            <input type="checkbox" id="remember">
-            <label for="remember">Ghi nhớ mật khẩu</label>
-            <p>Quên mật khẩu ? <a href="#"></a></p>
-            <p>Chưa có tài khoản<a href="#">Đăng ký ngay</a></p>
-        </form>
-
-    </div>
     {% block contact_response %}
 
     <!-- home section starts  -->
