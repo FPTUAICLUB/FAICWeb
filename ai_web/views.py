@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-
+from django.shortcuts import render
 
 def custom_page_not_found_view(request, exception):
     return render(request, "errors/404.html", {})

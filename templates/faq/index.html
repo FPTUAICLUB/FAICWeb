@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> FPT AI CLUB </title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicons/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicons/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicons/favicon-16x16.png' %}" />
+    <link rel="manifest" href="{% static 'images/favicons/site.webmanifest' %}" />
+    <meta name="description" content="FPT AI CLUB" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/animate/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/animate/custom-animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/jarallax/jarallax.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/jquery-magnific-popup/jquery.magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/nouislider/nouislider.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/nouislider/nouislider.pips.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/odometer/odometer.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/swiper/swiper.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/notech-icons/style.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/notech-two-icons/style.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/tiny-slider/tiny-slider.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/reey-font/stylesheet.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bxslider/jquery.bxslider.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap-select/css/bootstrap-select.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/vegas/vegas.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/jquery-ui/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/timepicker/timePicker.css' %}" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="{% static 'css/AI.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/notech-responsive.css' %}" />
+
+    <!-- modes css -->
+    <link rel="stylesheet" id="jssMode" href="{% static 'css/notech-light.css' %}">
+
+
+    <!-- toolbar css -->
+    <link rel="stylesheet" href="{% static 'vendors/toolbar/css/toolbar.css' %}">
+</head>
+
+<body>
+
+       <!-- style switcher -->
+       <div class="style-switcher">
+        <a href="#" id="switcher-toggler"><i class="fa fa-cog"></i></a>
+        <h3>Layout Options</h3>
+        <div class="layout-feature" id="colorMode">
+          <a href="" class="dark-switcher" data-theme="notech-dark">Dark</a>
+          <a href="" class="light-switcher" data-theme="notech-light">Light</a>
+        </div>
+        <!-- /.language-feature -->
+      </div>
+      <!-- end style switcher -->
+
+      <div class="preloader">
+        <img
+          class="preloader__image"
+          width="60"
+          src="{% static 'images/loader.png' %}"
+          alt=""
+        />
+      </div>
+      <!-- /.preloader -->
+      <div class="page-wrapper">
+        <header class="main-header main-header--one clearfix">
+          <div class="main-header__top">
+            <div class="main-header__top-inner clearfix">
+              <div class="main-header__top-right">
+                <div class="main-header__top-right-content">
+                  <div class="main-header__top-right-social"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <nav class="main-menu clearfix">
+            <div class="main-menu__wrapper clearfix">
+              <div class="main-menu__left main-menu__left--two">
+                <div class="main-menu__logo">
+                    <a href="{% url 'home:index' %}">
+                    <img
+                      class="logo-dark"
+                      src="{% static 'images/resources/logo.png' %}"
+                      alt=""
+                    />
+                    <img
+                      class="logo-light"
+                      src="{% static 'images/resources/logo.png' %}"
+                      alt=""
+                    />
+                  </a>
+                </div>
+                <div
+                  class="main-menu__main-menu-box main-menu__main-menu-box--two"
+                >
+                  <a href="#" class="mobile-nav__toggler"
+                    ><i class="fa fa-bars"></i
+                  ></a>
+                  <ul class="main-menu__list">
+                      <li><a href="{% url 'home:index' %}">Home</a></li>
+                      <li><a href="{% url 'about:index' %}">About Us</a></li>
+                      <li><a href="{% url 'blog:index' %}">Blog</a></li>
+                      <li><a href="{% url 'contact:index' %}">Contact</a></li>
+                      <li><a href="{% url 'faq:index' %}">FAQs</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="main-menu__right">
+                <div class="main-menu__search-box">
+                  <a
+                    href="#"
+                    class="main-menu__search search-toggler icon-magnifying-glass"
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <div class="stricky-header stricked-menu main-menu">
+          <div class="sticky-header__content"></div>
+          <!-- /.sticky-header__content -->
+        </div>
+        <!-- /.stricky-header -->
+
+        <!--Page Header Start-->
+        <section class="page-header">
+            <div class="page-header-bg" style="""
+                background-image: url("{% static 'images/backgrounds/page-header-bg.jpg' %}")
+            """
+            >
+            </div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <ul class="thm-breadcrumb list-unstyled">
+                        <li><a href="{% url 'home:index' %}">Home</a></li>
+                        <li><span>/</span></li>
+                        <li class="active">FAQs</li>
+                    </ul>
+                    <h2>FAQs</h2>
+                </div>
+            </div>
+        </section>
+        <!--Page Header End-->
+
+        <!--FAQ Search Start-->
+        <section class="faq-search">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="faq-search__inner">
+                            <div class="section-title text-center">
+                                <div class="section-title__tagline-box">
+                                    <span class="section-title__tagline">Những câu hỏi thường gặp</span>
+                                    <div class="section-title-shape">
+                                        <img src="{% static 'images/shapes/section-title-shape.png' %}"
+                                        alt="">
+                                    </div>
+                                </div>
+                                <h2 class="section-title__title">Chúng tôi có thể giúp được gì cho bạn ?</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--FAQ Search End-->
+
+        <!--FAQ Page End-->
+        <section class="faq-page">
+            <div class="container">
+                <div class="faq-page__tab">
+                    <div class="faq-page__tab-box tabs-box">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-5">
+                                <div class="faq-page__tab-button-box">
+                                    <ul class="tab-buttons clearfix list-unstyled">
+                                        <li data-tab="#thm-feature" class="tab-btn">
+                                            <div class="faq-page__tab-button-content">
+                                                <div class="icon">
+                                                    <img src="{% static 'images/icon/' %}"
+                                                    alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <p>Vào câu lạc bộ có bắt buộc phải học không ?</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li data-tab="#general" class="tab-btn active-btn">
+                                            <div class="faq-page__tab-button-content">
+                                                <div class="icon">
+                                                    <img src="{% static 'images/icon/' %}"
+                                                    alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <p>Câu lạc bộ có giúp đỡ trong việc học không ?</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li data-tab="#payment" class="tab-btn">
+                                            <div class="faq-page__tab-button-content">
+                                                <div class="icon">
+                                                    <img src="{% static 'images/icon/' %}"
+                                                    alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <p>Câu lạc bộ có đăng ký tham gia các cuộc thi ?</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li data-tab="#account" class="tab-btn">
+                                            <div class="faq-page__tab-button-content">
+                                                <div class="icon">
+                                                    <img src="{% static 'images/icon/' %}"
+                                                    alt="">
+                                                </div>
+                                                <div class="content">
+                                                    <p>Các sự kiện tổ chức của Câu lạc bộ ?</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-7">
+                                <div class="faq-page__tab-faq-box">
+                                    <div class="tabs-content">
+                                        <!--tab-->
+                                        <div class="tab" id="thm-feature">
+                                            <div class="faq-page__tab-faq-content">
+                                                <div class="faq-page__tab-faq-content-title-box">
+                                                    <div class="faq-page__tab-faq-content-title-icon">
+                                                        <img src="{% static 'images/icon/thm-feature.png' %}"
+                                                        alt="">
+                                                    </div>
+                                                    <div class="faq-page__tab-faq-content-title">
+                                                        <h5>Vào câu lạc bộ có bắt buộc phải học không ?</h5>
+                                                        <p>Phasellus tristique lorem et nulla tincidunt faucibus.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="faq-page__tab-main-faq">
+                                                    <div class="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-1">
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>What is a managed IT service provider?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion active">
+                                                            <div class="accrodion-title">
+                                                                <h4>What are the benefits of IT consultant?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>What makes your company different?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>Can I get an invoice for my purchase?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>Will you be updating your theme weekly?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>How much do I need to pay for the IT services?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion last-chiled">
+                                                            <div class="accrodion-title">
+                                                                <h4>What can you do if we hire a IT advisor for business?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--tab-->
+                                        <div class="tab active-tab" id="general">
+                                            <div class="faq-page__tab-faq-content">
+                                                <div class="faq-page__tab-faq-content-title-box">
+                                                    <div class="faq-page__tab-faq-content-title-icon">
+                                                        <img src="{% static 'images/icon/gen-inqires.png' %}"
+                                                        alt="">
+                                                    </div>
+                                                    <div class="faq-page__tab-faq-content-title">
+                                                        <h5>Câu lạc bộ có giúp đỡ trong việc học không ?</h5>
+                                                        <p>Phasellus tristique lorem et nulla tincidunt faucibus.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="faq-page__tab-main-faq">
+                                                    <div class="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-1">
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>What is a managed IT service provider?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion active">
+                                                            <div class="accrodion-title">
+                                                                <h4>What are the benefits of IT consultant?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>What makes your company different?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>Can I get an invoice for my purchase?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>Will you be updating your theme weekly?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>How much do I need to pay for the IT services?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion last-chiled">
+                                                            <div class="accrodion-title">
+                                                                <h4>What can you do if we hire a IT advisor for business?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--tab-->
+                                        <div class="tab " id="payment">
+                                            <div class="faq-page__tab-faq-content">
+                                                <div class="faq-page__tab-faq-content-title-box">
+                                                    <div class="faq-page__tab-faq-content-title-icon">
+                                                        <img src="{% static 'images/icon/payment.png' %}"
+                                                        alt="">
+                                                    </div>
+                                                    <div class="faq-page__tab-faq-content-title">
+                                                        <h5>Câu lạc bộ có đăng ký tham gia các cuộc thi ?</h5>
+                                                        <p>Phasellus tristique lorem et nulla tincidunt faucibus.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="faq-page__tab-main-faq">
+                                                    <div class="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-1">
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>What is a managed IT service provider?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion active">
+                                                            <div class="accrodion-title">
+                                                                <h4>What are the benefits of IT consultant?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>What makes your company different?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>Can I get an invoice for my purchase?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>Will you be updating your theme weekly?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>How much do I need to pay for the IT services?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion last-chiled">
+                                                            <div class="accrodion-title">
+                                                                <h4>What can you do if we hire a IT advisor for business?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--tab-->
+                                        <div class="tab " id="account">
+                                            <div class="faq-page__tab-faq-content">
+                                                <div class="faq-page__tab-faq-content-title-box">
+                                                    <div class="faq-page__tab-faq-content-title-icon">
+                                                        <img src="{% static 'images/icon/account.png' %}"
+                                                        alt="">
+                                                    </div>
+                                                    <div class="faq-page__tab-faq-content-title">
+                                                        <h5>Các sự kiện tổ chức của Câu lạc bộ ?</h5>
+                                                        <p>Phasellus tristique lorem et nulla tincidunt faucibus.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="faq-page__tab-main-faq">
+                                                    <div class="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-1">
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>What is a managed IT service provider?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion active">
+                                                            <div class="accrodion-title">
+                                                                <h4>What are the benefits of IT consultant?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>What makes your company different?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>Can I get an invoice for my purchase?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>Will you be updating your theme weekly?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion">
+                                                            <div class="accrodion-title">
+                                                                <h4>How much do I need to pay for the IT services?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="accrodion last-chiled">
+                                                            <div class="accrodion-title">
+                                                                <h4>What can you do if we hire a IT advisor for business?</h4>
+                                                            </div>
+                                                            <div class="accrodion-content">
+                                                                <div class="inner">
+                                                                    <p>There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable. Phasellus a rhoncus erat. Vivamus vel eros vitae est aliquet pellentesque vitae.</p>
+                                                                </div><!-- /.inner -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--FAQ Page End-->
+     <!--Site Footer Start-->
+     <footer class="site-footer">
+        <div
+          class="site-footer-bg-1 wow slideInLeft"
+          data-wow-delay="100ms"
+          data-wow-duration="2500ms"
+          style="""
+            background-image: url("{% static 'images/shapes/site-footer-shape-1.png' %}");
+          """
+        ></div>
+        <div
+          class="site-footer-bg-2 wow slideInRight"
+          data-wow-delay="100ms"
+          data-wow-duration="2500ms"
+          style="""
+            background-image: url("{% static 'images/shapes/site-footer-shape-2.png' %}");
+          """
+        ></div>
+        <div class="site-footer__middle">
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay="100ms"
+              >
+                <div class="footer-widget__column footer-widget__about">
+                  <div class="footer-widget__logo">
+                    <a href="{% url 'home:index' %}"
+                      ><img
+                        src="{% static 'images/resources/logo.png' %}"
+                        alt=""
+                    /></a>
+                  </div>
+                  <div class="footer-widget__about-text-box">
+                  </div>
+                  <form class="footer-widget__newsletter-form">
+                  </form>
+                </div>
+              </div>
+              <div
+                class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay="200ms"
+              >
+                <div
+                  class="footer-widget__column footer-widget__links clearfix"
+                >
+                  <h3 class="footer-widget__title">Links</h3>
+                  <ul class="footer-widget__links-list list-unstyled clearfix">
+                    <li><a href="{% url 'about:index' %}">About us</a></li>
+                    <li><a href="{% url 'blog:index' %}">News & media</a></li>
+                    <li><a href="{% url 'contact:index' %}">Contacts</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay="300ms"
+              >
+                <div
+                  class="footer-widget__column footer-widget__contact clearfix"
+                >
+                  <h3 class="footer-widget__title">Contact</h3>
+                  <ul
+                    class="footer-widget__contact-list list-unstyled clearfix"
+                  >
+                    <li>
+                      <div class="icon">
+                        <span class="icon-telephone"></span>
+                      </div>
+                      <div class="text">
+                        <p><a href="tel:0000000000">phone number</a></p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon">
+                        <span class="icon-email"></span>
+                      </div>
+                      <div class="text">
+                        <p>
+                          <a href="mailto:needhelp@company.com"
+                            >name@gmail.com</a
+                          >
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon">
+                        <span class="icon-pin"></span>
+                      </div>
+                      <div class="text">
+                        <p> Đại học FPT, KCN Hoà Lạc, Thạch Thất, Hà Nội</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay="400ms"
+              >
+                <div
+                  class="footer-widget__column footer-widget__social-box clearfix"
+                >
+                  <div class="site-footer__social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!--Site Footer End-->
+    </div>
+    <!-- /.page-wrapper -->
+
+    <div class="mobile-nav__wrapper">
+      <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+      <!-- /.mobile-nav__overlay -->
+      <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"
+          ><i class="fa fa-times"></i
+        ></span>
+
+        <div class="logo-box">
+          <a href="{% url 'home:index' %}"
+             aria-label="logo image"
+            ><img src="{% static 'images/resources/logo.png' %}"
+                  width="155" alt=""
+          /></a>
+        </div>
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+          <li>
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:needhelp@packageName__.com">gmail@gmail.com</a>
+          </li>
+          <li>
+            <i class="fa fa-phone-alt"></i>
+            <a href="tel:666-888-0000">666 888 0000</a>
+          </li>
+        </ul>
+        <!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+          <div class="mobile-nav__social">
+            <a href="#" class="fab fa-facebook-square"></a>
+            <a href="#" class="fab fa-instagram"></a>
+          </div>
+          <!-- /.mobile-nav__social -->
+        </div>
+        <!-- /.mobile-nav__top -->
+      </div>
+      <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    <div class="search-popup">
+      <div class="search-popup__overlay search-toggler"></div>
+      <!-- /.search-popup__overlay -->
+      <div class="search-popup__content">
+        <form action="#">
+          <label for="search" class="sr-only">search here</label
+          ><!-- /.sr-only -->
+          <input type="text" id="search" placeholder="Search Here..." />
+          <button type="submit" aria-label="search submit" class="thm-btn">
+            <i class="icon-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      <!-- /.search-popup__content -->
+    </div>
+    <!-- /.search-popup -->
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"
+      ><i class="fa fa-angle-up"></i
+    ></a>
+
+
+    <script src="{% static 'vendors/jquery/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendors/jarallax/jarallax.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-appear/jquery.appear.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-circle-progress/jquery.circle-progress.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-validate/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'vendors/nouislider/nouislider.min.js' %}"></script>
+    <script src="{% static 'vendors/odometer/odometer.min.js' %}"></script>
+    <script src="{% static 'vendors/swiper/swiper.min.js' %}"></script>
+    <script src="{% static 'vendors/tiny-slider/tiny-slider.min.js' %}"></script>
+    <script src="{% static 'vendors/wnumb/wNumb.min.js' %}"></script>
+    <script src="{% static 'vendors/wow/wow.js' %}"></script>
+    <script src="{% static 'vendors/isotope/isotope.js' %}"></script>
+    <script src="{% static 'vendors/countdown/countdown.min.js' %}"></script>
+    <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'vendors/bxslider/jquery.bxslider.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'vendors/vegas/vegas.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-ui/jquery-ui.js' %}"></script>
+    <script src="{% static 'vendors/timepicker/timePicker.js' %}"></script>
+
+
+
+
+    <!-- template js -->
+    <script src="{% static 'js/AI.js' %}"></script>
+
+    <!-- toolbar js -->
+    <script src="{% static 'vendors/toolbar/js/js.cookie.min.js' %}"></script>
+    <script src="{% static 'vendors/toolbar/js/jQuery.style.switcher.min.js' %}"></script>
+    <script src="{% static 'vendors/toolbar/js/toolbar.js' %}"></script>
+</body>
+
+</html>
