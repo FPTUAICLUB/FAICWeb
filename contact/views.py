@@ -11,7 +11,7 @@ def index(request):
         messages = request.POST.get("messages")
         contact.name = name
         contact.email = email
-        contact.message = messages
+        contact.messages = messages
         contact.save()
         return render(request, "contact/response.html")
     return render(request, "contact/index.html")
