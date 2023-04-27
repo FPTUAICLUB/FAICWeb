@@ -10,6 +10,7 @@ psycopg-binary = "*"
 psycopg2-binary = "*"
 django-debug-toolbar = "*"
 django-environ = "*"
+gunicorn = "*"
 
 [dev-packages]
 
