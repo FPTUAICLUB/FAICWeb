@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 django = "*"
 black = "*"
+psycopg-binary = "*"
+psycopg2-binary = "*"
+django-debug-toolbar = "*"
+django-environ = "*"
 
 [dev-packages]
 

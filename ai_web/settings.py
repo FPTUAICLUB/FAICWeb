@@ -9,26 +9,33 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import environ
 import os
-from .secret_key import secret_key
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ENVIRONMENT = os.environ.get('ENVIRONMENT', default="development")
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+ENVIRONMENT = env("ENVIRONMENT", default="development")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_key
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [".onrender.com", "localhost", "127.0.0.1"]
 
 # Application definition
 
@@ -43,6 +50,8 @@ INSTALLED_APPS = [
     "blog.apps.BlogConfig",
     "about.apps.AboutConfig",
     "contact.apps.ContactConfig",
+    # Third-party
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -53,6 +62,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "ai_web.urls"
@@ -80,9 +90,9 @@ WSGI_APPLICATION = "ai_web.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
 
@@ -139,8 +149,18 @@ STATICFILES_DIRS = [
 ]
 
 # production
-if ENVIRONMENT == 'production':
+if ENVIRONMENT == "production":
     DEBUG = False
-    SECURE_BROWSER_XSS_FILTER = True # prevent cross-site scripting(XSS) attack
-    X_FRAME_OPTIONS = 'DENY' # prevent clickjacking attack
-    SECURE_SSL_REDIRECT = True # force all non-HTTPS traffic to be redirected to HTTPS
+    SECURE_BROWSER_XSS_FILTER = True  # prevent cross-site scripting(XSS) attack
+    X_FRAME_OPTIONS = "DENY"  # prevent clickjacking attack
+    SECURE_SSL_REDIRECT = True  # force all non-HTTPS traffic to be redirected to HTTPS
+
+# django-debug-toolbar
+if DEBUG:
+    import socket  # only if you haven't already imported this
+
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + [
+        "127.0.0.1",
+        "10.0.2.2",
+    ]
