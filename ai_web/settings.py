@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -133,27 +134,43 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATIC_ROOT = BASE_DIR / "productionfiles/"
 
 STATIC_URL = "static/"
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static/",
 ]
+
+# Supporting for forever-cacheable files and compression
+# more details: ttps://whitenoise.readthedocs.io/en/stable/django.html
+#  STORAGES = {
+#      "staticfiles": {
+#          "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#      },
+#  }
 
 # production
 if ENVIRONMENT == "production":
     DEBUG = False
     SECURE_BROWSER_XSS_FILTER = True  # prevent cross-site scripting(XSS) attack
     X_FRAME_OPTIONS = "DENY"  # prevent clickjacking attack
-    SECURE_SSL_REDIRECT = True  # force all non-HTTPS traffic to be redirected to HTTPS
+    #  SECURE_SSL_REDIRECT = True  # force all non-HTTPS traffic to be redirected to HTTPS
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = (
+        True  # force any subdomains to also exclusively use SSL
+    )
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+
 
 # django-debug-toolbar
 if DEBUG:
@@ -164,3 +181,5 @@ if DEBUG:
         "127.0.0.1",
         "10.0.2.2",
     ]
+print(DEBUG)
+print(ENVIRONMENT)

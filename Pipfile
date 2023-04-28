@@ -11,6 +11,7 @@ psycopg2-binary = "*"
 django-debug-toolbar = "*"
 django-environ = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 
