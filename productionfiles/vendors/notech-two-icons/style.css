@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'notech-two';
+  src:  url('fonts/notech-two.eot?7sc5yz');
+  src:  url('fonts/notech-two.eot?7sc5yz#iefix') format('embedded-opentype'),
+    url('fonts/notech-two.ttf?7sc5yz') format('truetype'),
+    url('fonts/notech-two.woff?7sc5yz') format('woff'),
+    url('fonts/notech-two.svg?7sc5yz#notech-two') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="notech-two-icon-"], [class*=" notech-two-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'notech-two' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.notech-two-icon-manufacturing:before {
+  content: "\e900";
+}
+.notech-two-icon-freelance:before {
+  content: "\e901";
+}
