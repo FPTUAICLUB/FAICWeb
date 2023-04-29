@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .settings import DEBUG
 
 handler400 = "ai_web.views.custom_bad_request_view"
 handler403 = "ai_web.views.custom_permission_denied_view"
@@ -29,3 +30,10 @@ urlpatterns = [
     path("faq/", include("faq.urls")),
     path("", include("home.urls")),
 ]
+
+if DEBUG:
+    import debug_toolbar
+
+    urlpatterns += [
+        path("__debug__/", include(debug_toolbar.urls)),
+    ]

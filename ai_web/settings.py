@@ -9,30 +9,40 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import environ
 import os
-from .secret_key import secret_key
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ENVIRONMENT = os.environ.get('ENVIRONMENT', default="development")
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+ENVIRONMENT = env("ENVIRONMENT", default="development")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_key
+
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
-ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
+DEBUG = env("DEBUG")
+
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
 INSTALLED_APPS = [
+    "sslserver",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -43,16 +53,20 @@ INSTALLED_APPS = [
     "blog.apps.BlogConfig",
     "about.apps.AboutConfig",
     "contact.apps.ContactConfig",
+    # Third-party
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Whitenoise helps to serve staticfiles in production
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "ai_web.urls"
@@ -80,9 +94,9 @@ WSGI_APPLICATION = "ai_web.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
 
@@ -123,24 +137,57 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATIC_ROOT = BASE_DIR / "productionfiles/"
 
 STATIC_URL = "static/"
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static/",
 ]
 
+# Supporting for forever-cacheable files and compression
+# More details: https://whitenoise.readthedocs.io/en/stable/django.html
+# [Note]: 2023-04-29 14:02 phamhung20022015@gmail.com
+# Enable storage will fail `python manage.py test`
+# STORAGES = {
+#      "staticfiles": {
+#          "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#      },
+#  }
+
 # production
-if ENVIRONMENT == 'production':
+if ENVIRONMENT == "production":
     DEBUG = False
-    SECURE_BROWSER_XSS_FILTER = True # prevent cross-site scripting(XSS) attack
-    X_FRAME_OPTIONS = 'DENY' # prevent clickjacking attack
-    SECURE_SSL_REDIRECT = True # force all non-HTTPS traffic to be redirected to HTTPS
+    SECURE_BROWSER_XSS_FILTER = True  # prevent cross-site scripting(XSS) attack
+    X_FRAME_OPTIONS = "DENY"  # prevent clickjacking attack
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = (
+        True  # force any subdomains to also exclusively use SSL
+    )
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+
+    #  [Note]: 2023-04-29 13:43 phamhung20022015@gmail.com
+    #  Khi triển khai trang lên server thì 2 tùy chỉnh dưới đây sẽ tăng bảo mật nhưng sẽ đánh đổi
+    #  về mặt độ trễ khi chuyển trang. Trong trường hợp yêu cầu cao về bảo mật ko thì False
+    #  SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https") # prevent browsers from using the website on insecure HTTP connections.
+    #  SECURE_SSL_REDIRECT = True  # force all non-HTTPS traffic to be redirected to HTTPS
+
+
+# django-debug-toolbar
+if DEBUG:
+    import socket  # only if you haven't already imported this
+
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + [
+        "127.0.0.1",
+        "10.0.2.2",
+    ]
