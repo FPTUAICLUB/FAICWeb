@@ -40,6 +40,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    "sslserver",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -161,7 +162,7 @@ if ENVIRONMENT == "production":
     DEBUG = False
     SECURE_BROWSER_XSS_FILTER = True  # prevent cross-site scripting(XSS) attack
     X_FRAME_OPTIONS = "DENY"  # prevent clickjacking attack
-    #  SECURE_SSL_REDIRECT = True  # force all non-HTTPS traffic to be redirected to HTTPS
+    SECURE_SSL_REDIRECT = True  # force all non-HTTPS traffic to be redirected to HTTPS
     SECURE_HSTS_SECONDS = 3600
     SECURE_HSTS_INCLUDE_SUBDOMAINS = (
         True  # force any subdomains to also exclusively use SSL
@@ -181,5 +182,3 @@ if DEBUG:
         "127.0.0.1",
         "10.0.2.2",
     ]
-print(DEBUG)
-print(ENVIRONMENT)

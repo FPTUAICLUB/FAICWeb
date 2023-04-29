@@ -12,6 +12,7 @@ django-debug-toolbar = "*"
 django-environ = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-sslserver = "*"
 
 [dev-packages]
 
