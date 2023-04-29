@@ -30,9 +30,11 @@ ENVIRONMENT = env("ENVIRONMENT", default="development")
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = ["*"]
@@ -58,7 +60,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Whitenoise helps to serve staticfiles in production
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -150,8 +152,10 @@ STATICFILES_DIRS = [
 ]
 
 # Supporting for forever-cacheable files and compression
-# more details: ttps://whitenoise.readthedocs.io/en/stable/django.html
-#  STORAGES = {
+# More details: https://whitenoise.readthedocs.io/en/stable/django.html
+# [Note]: 2023-04-29 14:02 phamhung20022015@gmail.com
+# Enable storage will fail `python manage.py test`
+# STORAGES = {
 #      "staticfiles": {
 #          "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
 #      },
@@ -162,8 +166,6 @@ if ENVIRONMENT == "production":
     DEBUG = False
     SECURE_BROWSER_XSS_FILTER = True  # prevent cross-site scripting(XSS) attack
     X_FRAME_OPTIONS = "DENY"  # prevent clickjacking attack
-    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-    SECURE_SSL_REDIRECT = True  # force all non-HTTPS traffic to be redirected to HTTPS
     SECURE_HSTS_SECONDS = 3600
     SECURE_HSTS_INCLUDE_SUBDOMAINS = (
         True  # force any subdomains to also exclusively use SSL
@@ -172,6 +174,12 @@ if ENVIRONMENT == "production":
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+
+    #  [Note]: 2023-04-29 13:43 phamhung20022015@gmail.com
+    #  Khi triển khai trang lên server thì 2 tùy chỉnh dưới đây sẽ tăng bảo mật nhưng sẽ đánh đổi
+    #  về mặt độ trễ khi chuyển trang. Trong trường hợp yêu cầu cao về bảo mật ko thì False
+    #  SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https") # prevent browsers from using the website on insecure HTTP connections.
+    #  SECURE_SSL_REDIRECT = True  # force all non-HTTPS traffic to be redirected to HTTPS
 
 
 # django-debug-toolbar
