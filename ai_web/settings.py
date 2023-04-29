@@ -162,6 +162,7 @@ if ENVIRONMENT == "production":
     DEBUG = False
     SECURE_BROWSER_XSS_FILTER = True  # prevent cross-site scripting(XSS) attack
     X_FRAME_OPTIONS = "DENY"  # prevent clickjacking attack
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECURE_SSL_REDIRECT = True  # force all non-HTTPS traffic to be redirected to HTTPS
     SECURE_HSTS_SECONDS = 3600
     SECURE_HSTS_INCLUDE_SUBDOMAINS = (
