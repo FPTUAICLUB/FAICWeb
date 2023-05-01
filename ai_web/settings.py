@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     "contact.apps.ContactConfig",
     # Third-party
     "debug_toolbar",
+    "ckeditor",
+    "ckeditor_uploader",
 ]
 
 MIDDLEWARE = [
@@ -143,13 +145,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+STATIC_URL = "/static/"
+
 STATIC_ROOT = BASE_DIR / "productionfiles/"
 
-STATIC_URL = "static/"
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static/",
-]
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "static/uploads")
 
 # Supporting for forever-cacheable files and compression
 # More details: https://whitenoise.readthedocs.io/en/stable/django.html
@@ -161,6 +166,11 @@ STATICFILES_DIRS = [
 #      },
 #  }
 
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    "default": {"toolbar": "full", "height": 300, "width": "100%"},
+}
 # production
 if ENVIRONMENT == "production":
     DEBUG = False

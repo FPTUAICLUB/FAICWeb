@@ -13,6 +13,7 @@ django-environ = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-sslserver = "*"
+pillow = "*"
 
 [dev-packages]
 
