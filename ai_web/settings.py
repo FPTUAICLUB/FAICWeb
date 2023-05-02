@@ -196,7 +196,7 @@ if ENVIRONMENT == "production":
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True
     #  CSRF_COOKIE_SECURE = True
-    #  CSRF_TRUSTED_ORIGINS = ["https://*.railway.app", "https://www.*.railway.app"]
+    CSRF_TRUSTED_ORIGINS = ["https://*.railway.app", "https://www.*.railway.app"]
 
     #  [Note]: 2023-04-29 13:43 phamhung20022015@gmail.com
     #  Khi triển khai trang lên server thì 2 tùy chỉnh dưới đây sẽ tăng bảo mật nhưng sẽ đánh đổi
