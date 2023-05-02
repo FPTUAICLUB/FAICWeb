@@ -14,6 +14,12 @@ import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
+# 2023-05-02 10:39 phamhung20022015
+# [Note]: Lưu ý các đoạn code được comment ở dưới là optional
+# vi lý do hầu hết là khiến hiệu năng của trang giảm nên phải
+# tắt đi, trong tương lai nếu muốn active thì cần nghiên cứu kĩ lại
+# để tránh làm hỏng code cũ.
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -151,6 +157,7 @@ STATIC_ROOT = BASE_DIR / "productionfiles/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+# Prevent add uploads file to the repo
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 MEDIA_URL = "/media/"
@@ -158,8 +165,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static/uploads")
 
 # Supporting for forever-cacheable files and compression
 # More details: https://whitenoise.readthedocs.io/en/stable/django.html
-# [Note]: 2023-04-29 14:02 phamhung20022015@gmail.com
-# Enable storage will fail `python manage.py test`
+# 2023-04-29 14:02 phamhung20022015@gmail.com
+# [Note]: Enable storage will fail `python manage.py test`
 #  STORAGES = {
 #      "staticfiles": {
 #          "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
@@ -188,12 +195,13 @@ if ENVIRONMENT == "production":
     SECURE_HSTS_PRELOAD = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    CSRF_TRUSTED_ORIGINS = ["https://*.railway.app", "https://www.*.railway.app"]
+    #  CSRF_COOKIE_SECURE = True
+    #  CSRF_TRUSTED_ORIGINS = ["https://*.railway.app", "https://www.*.railway.app"]
 
     #  [Note]: 2023-04-29 13:43 phamhung20022015@gmail.com
     #  Khi triển khai trang lên server thì 2 tùy chỉnh dưới đây sẽ tăng bảo mật nhưng sẽ đánh đổi
-    #  về mặt độ trễ khi chuyển trang. Trong trường hợp yêu cầu cao về bảo mật ko thì False
+    #  về mặt độ trễ khi chuyển trang. Trong trường hợp yêu cầu cao về bảo mật nếu ko thì nên False
+    #  để giúp trang load nhanh hơn.
     #  SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https") # prevent browsers from using the website on insecure HTTP connections.
     #  SECURE_SSL_REDIRECT = True  # force all non-HTTPS traffic to be redirected to HTTPS
 
