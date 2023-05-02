@@ -160,17 +160,22 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static/uploads")
 # More details: https://whitenoise.readthedocs.io/en/stable/django.html
 # [Note]: 2023-04-29 14:02 phamhung20022015@gmail.com
 # Enable storage will fail `python manage.py test`
-# STORAGES = {
+#  STORAGES = {
 #      "staticfiles": {
 #          "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
 #      },
 #  }
 
+# Rich text editor with ckeditor
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_CONFIGS = {
     "default": {"toolbar": "full", "height": 300, "width": "100%"},
 }
+
+CKEDITOR_STORAGE_BACKEND = "django.core.files.storage.FileSystemStorage"
+
+
 # production
 if ENVIRONMENT == "production":
     DEBUG = False
@@ -184,6 +189,7 @@ if ENVIRONMENT == "production":
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+    CSRF_TRUSTED_ORIGINS = ["https://*.railway.app", "https://www.*.railway.app"]
 
     #  [Note]: 2023-04-29 13:43 phamhung20022015@gmail.com
     #  Khi triển khai trang lên server thì 2 tùy chỉnh dưới đây sẽ tăng bảo mật nhưng sẽ đánh đổi
