@@ -43,7 +43,7 @@ p {
 /* header */
 header {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/background.jpg) center/cover no-repeat fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url() center/cover no-repeat fixed;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
@@ -191,7 +191,7 @@ form>.button:hover {
 /* featured */
 .section--header {
     min-height: 40vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/background.jpg) center/cover no-repeat fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url() center/cover no-repeat fixed;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
