@@ -188,15 +188,16 @@ if ENVIRONMENT == "production":
     DEBUG = False
     SECURE_BROWSER_XSS_FILTER = True  # prevent cross-site scripting(XSS) attack
     X_FRAME_OPTIONS = "DENY"  # prevent clickjacking attack
-    SECURE_HSTS_SECONDS = 3600
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = (
-        True  # force any subdomains to also exclusively use SSL
-    )
-    SECURE_HSTS_PRELOAD = True
+    #  SECURE_HSTS_SECONDS = 3600
+    #  SECURE_HSTS_INCLUDE_SUBDOMAINS = (
+    #      True  # force any subdomains to also exclusively use SSL
+    #  )
+    #  SECURE_HSTS_PRELOAD = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True
     #  CSRF_COOKIE_SECURE = True
-    CSRF_TRUSTED_ORIGINS = ["https://*.railway.app", "https://www.*.railway.app"]
+    CSRF_TRUSTED_ORIGINS = ["https://*.railway.app", "https://www.*.railway.app", "https://*.onrender.com",
+                            "https://www.*.onrender.com"]
 
     #  [Note]: 2023-04-29 13:43 phamhung20022015@gmail.com
     #  Khi triển khai trang lên server thì 2 tùy chỉnh dưới đây sẽ tăng bảo mật nhưng sẽ đánh đổi
