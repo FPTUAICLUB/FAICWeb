@@ -7,6 +7,5 @@ contact/__pycache__/
 contact/migrations/__pycache__/
 home/__pycache__/
 home/migrations/__pycache__/
-ai_web/secret_key.py
 .env
 static/uploads/
