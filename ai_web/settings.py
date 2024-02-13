@@ -13,7 +13,9 @@ import environ
 import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
 
+load_dotenv()
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
