@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> FPT AI CLUB </title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicons/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicons/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicons/favicon-16x16.png' %}" />
+    <link rel="manifest" href="{% static 'images/favicons/site.webmanifest' %}" />
+    <meta name="description" content="Notech HTML Template For It Solution" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/animate/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/animate/custom-animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/jarallax/jarallax.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/jquery-magnific-popup/jquery.magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/nouislider/nouislider.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/nouislider/nouislider.pips.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/odometer/odometer.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/swiper/swiper.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/notech-icons/style.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/notech-two-icons/style.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/tiny-slider/tiny-slider.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/reey-font/stylesheet.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bxslider/jquery.bxslider.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap-select/css/bootstrap-select.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/vegas/vegas.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/jquery-ui/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'vendors/timepicker/timePicker.css' %}" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="{% static 'css/AI.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/notech-responsive.css' %}" />
+
+    <!-- modes css -->
+    <link rel="stylesheet" id="jssMode" href="{% static 'css/notech-light.css' %}">
+
+
+    <!-- toolbar css -->
+    <link rel="stylesheet" href="{% static 'vendors/toolbar/css/toolbar.css' %}">
+</head>
+
+<body>
+
+      <!-- style switcher -->
+      <div class="style-switcher">
+        <a href="#" id="switcher-toggler"><i class="fa fa-cog"></i></a>
+        <h3>Layout Options</h3>
+        <div class="layout-feature" id="colorMode">
+          <a href="" class="dark-switcher" data-theme="notech-dark">Dark</a>
+          <a href="" class="light-switcher" data-theme="notech-light">Light</a>
+        </div>
+        <!-- /.language-feature -->
+      </div>
+      <!-- end style switcher -->
+
+      <div class="preloader">
+        <img
+          class="preloader__image"
+          width="60"
+          src="{% static 'images/loader.png' %}"
+          alt=""
+        />
+      </div>
+      <!-- /.preloader -->
+      <div class="page-wrapper">
+        <header class="main-header main-header--one clearfix">
+          <nav class="main-menu clearfix">
+            <div class="main-menu__wrapper clearfix">
+              <div class="main-menu__left main-menu__left--two">
+                <div class="main-menu__logo">
+                  <a href="{% url 'home:index' %}">
+                    <img
+                      class="logo-dark"
+                      src="{% static 'images/resources/logo.png' %}"
+                      alt=""
+                    />
+                    <img
+                      class="logo-light"
+                      src="{% static 'images/resources/logo.png' %}"
+                      alt=""
+                    />
+                  </a>
+                </div>
+                <div
+                  class="main-menu__main-menu-box main-menu__main-menu-box--two"
+                >
+                  <a href="#" class="mobile-nav__toggler"
+                    ><i class="fa fa-bars"></i
+                  ></a>
+                  <ul class="main-menu__list">
+                    <li><a href="{% url 'home:index' %}">Home</a></li>
+                    <li><a href="{% url 'about:index' %}">About Us</a></li>
+                    <li><a href="{% url 'blog:index' %}">Blog</a></li>
+                    <li><a href="{% url 'contact:index' %}">Contact</a></li>
+                    <li><a href="{% url 'faq:index' %}">FAQs</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="main-menu__right">
+                <div class="main-menu__search-box">
+                  <a
+                    href="#"
+                    class="main-menu__search search-toggler icon-magnifying-glass"
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <div class="stricky-header stricked-menu main-menu">
+          <div class="sticky-header__content"></div>
+          <!-- /.sticky-header__content -->
+        </div>
+        <!-- /.stricky-header -->
+
+        <!--Page Header Start-->
+        <section class="page-header">
+            <div class="page-header-bg" style="""
+                background-image: url("{% static 'images/backgrounds/page-header-bg.jpg' %}")
+            """
+            >
+            </div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <ul class="thm-breadcrumb list-unstyled">
+                        <li><a href="{% url 'home:index' %}">Home</a></li>
+                        <li><span>/</span></li>
+                        <li class="active">Contact</li>
+                    </ul>
+                    <h2>Contact us</h2>
+                </div>
+            </div>
+        </section>
+        <!--Page Header End-->
+
+        <!--Contact Details Start-->
+        <section class="contact-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-6">
+                        <div class="contact-details__img">
+                            <img src="{% static 'images/resources/contact-details-img.jpg' %}"
+                            alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-6">
+                        <div class="contact-details__right">
+                            <div class="section-title text-left">
+                                <div class="section-title__tagline-box">
+                                    <span class="section-title__tagline">Liên hệ với chúng tôi</span>
+                                    <div class="section-title-shape">
+                                        <img src="{% static 'images/shapes/section-title-shape.png' %}"
+                                        alt="">
+                                    </div>
+                                </div>
+                                <h2 class="section-title__title">Hãy để lại 1 ánh sáng nhỏ</h2>
+                            </div>
+                            <p class="contact-details__text">Chúng tôi là một câu lạc bộ có nhiều ý tưởng táo bạo và cũng không ngừng phát triển bản thân để cuộc sống tốt đẹp hơn.</p>
+                            <ul class="list-unstyled contact-details__info">
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-telephone"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p>Có những thắc mắc nhỏ ?</p>
+                                        <a href="https://www.facebook.com/aiclub.fptu"><span>Hãy vào</span> Fanpage của chúng tôi</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-email"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p>Viết email tại</p>
+                                        <a href="mailto:needhelp@notech.com">gmaillp@gmail.com</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-pin"></span>
+                                    </div>
+                                    <div class="text">
+                                        <p>Ví trí của chúng tôi</p>
+                                        <span>Đại học FPT, khu công nghệ cao Hoà Lạc, Thạch Thất, Hà Nội.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Contact Details End-->
+
+      <!--Site Footer Start-->
+      <footer class="site-footer">
+        <div
+          class="site-footer-bg-1 wow slideInLeft"
+          data-wow-delay="100ms"
+          data-wow-duration="2500ms"
+          style="""
+            background-image: url("{% static 'images/shapes/site-footer-shape-1.png' %}");
+          """
+        ></div>
+        <div
+          class="site-footer-bg-2 wow slideInRight"
+          data-wow-delay="100ms"
+          data-wow-duration="2500ms"
+          style="""
+            background-image: url("{% static 'images/shapes/site-footer-shape-2.png' %}");
+          """
+        ></div>
+        <div class="site-footer__middle">
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay="100ms"
+              >
+                <div class="footer-widget__column footer-widget__about">
+                  <div class="footer-widget__logo">
+                    <a href="{% url 'home:index' %}"
+                      ><img
+                        src="{% static 'images/resources/logo.png' %}"
+                        alt=""
+                    /></a>
+                  </div>
+                  <div class="footer-widget__about-text-box">
+                  </div>
+                  <form class="footer-widget__newsletter-form">
+                  </form>
+                </div>
+              </div>
+              <div
+                class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay="200ms"
+              >
+                <div
+                  class="footer-widget__column footer-widget__links clearfix"
+                >
+                  <h3 class="footer-widget__title">Links</h3>
+                  <ul class="footer-widget__links-list list-unstyled clearfix">
+                    <li><a href="{% url 'about:index' %}">About us</a></li>
+                    <li><a href="{% url 'blog:index' %}">News & media</a></li>
+                    <li><a href="{% url 'contact:index' %}">Contacts</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay="300ms"
+              >
+                <div
+                  class="footer-widget__column footer-widget__contact clearfix"
+                >
+                  <h3 class="footer-widget__title">Contact</h3>
+                  <ul
+                    class="footer-widget__contact-list list-unstyled clearfix"
+                  >
+                    <li>
+                      <div class="icon">
+                        <span class="icon-telephone"></span>
+                      </div>
+                      <div class="text">
+                        <p><a href="tel:0000000000">phone number</a></p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon">
+                        <span class="icon-email"></span>
+                      </div>
+                      <div class="text">
+                        <p>
+                          <a href="mailto:needhelp@company.com"
+                            >name@gmail.com</a
+                          >
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="icon">
+                        <span class="icon-pin"></span>
+                      </div>
+                      <div class="text">
+                        <p> Đại học FPT, KCN Hoà Lạc, Thạch Thất, Hà Nội</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
+                data-wow-delay="400ms"
+              >
+                <div
+                  class="footer-widget__column footer-widget__social-box clearfix"
+                >
+                  <div class="site-footer__social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!--Site Footer End-->
+    </div>
+    <!-- /.page-wrapper -->
+
+    <div class="mobile-nav__wrapper">
+      <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+      <!-- /.mobile-nav__overlay -->
+      <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"
+          ><i class="fa fa-times"></i
+        ></span>
+
+        <div class="logo-box">
+          <a href="{% url 'home:index' %}"  aria-label="logo image"
+            ><img src="{% static 'images/resources/logo.png' %}"
+                  width="155" alt=""
+          /></a>
+        </div>
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+          <li>
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:needhelp@packageName__.com">gmail@gmail.com</a>
+          </li>
+          <li>
+            <i class="fa fa-phone-alt"></i>
+            <a href="tel:666-888-0000">666 888 0000</a>
+          </li>
+        </ul>
+        <!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+          <div class="mobile-nav__social">
+            <a href="#" class="fab fa-facebook-square"></a>
+            <a href="#" class="fab fa-instagram"></a>
+          </div>
+          <!-- /.mobile-nav__social -->
+        </div>
+        <!-- /.mobile-nav__top -->
+      </div>
+      <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    <div class="search-popup">
+      <div class="search-popup__overlay search-toggler"></div>
+      <!-- /.search-popup__overlay -->
+      <div class="search-popup__content">
+        <form action="#">
+          <label for="search" class="sr-only">search here</label
+          ><!-- /.sr-only -->
+          <input type="text" id="search" placeholder="Search Here..." />
+          <button type="submit" aria-label="search submit" class="thm-btn">
+            <i class="icon-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      <!-- /.search-popup__content -->
+    </div>
+    <!-- /.search-popup -->
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"
+      ><i class="fa fa-angle-up"></i
+    ></a>
+
+
+
+    <script src="{% static 'vendors/jquery/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendors/jarallax/jarallax.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-appear/jquery.appear.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-circle-progress/jquery.circle-progress.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-validate/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'vendors/nouislider/nouislider.min.js' %}"></script>
+    <script src="{% static 'vendors/odometer/odometer.min.js' %}"></script>
+    <script src="{% static 'vendors/swiper/swiper.min.js' %}"></script>
+    <script src="{% static 'vendors/tiny-slider/tiny-slider.min.js' %}"></script>
+    <script src="{% static 'vendors/wnumb/wNumb.min.js' %}"></script>
+    <script src="{% static 'vendors/wow/wow.js' %}"></script>
+    <script src="{% static 'vendors/isotope/isotope.js' %}"></script>
+    <script src="{% static 'vendors/countdown/countdown.min.js' %}"></script>
+    <script src="{% static 'vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'vendors/bxslider/jquery.bxslider.min.js' %}"></script>
+    <script src="{% static 'vendors/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'vendors/vegas/vegas.min.js' %}"></script>
+    <script src="{% static 'vendors/jquery-ui/jquery-ui.js' %}"></script>
+    <script src="{% static 'vendors/timepicker/timePicker.js' %}"></script>
+
+
+
+
+    <!-- template js -->
+    <script src="{% static 'js/AI.js' %}"></script>
+
+    <!-- toolbar js -->
+    <script src="{% static 'vendors/toolbar/js/js.cookie.min.js' %}"></script>
+    <script src="{% static 'vendors/toolbar/js/jQuery.style.switcher.min.js' %}"></script>
+    <script src="{% static 'vendors/toolbar/js/toolbar.js' %}"></script>
+</body>
+
+</html>

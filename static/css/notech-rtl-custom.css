@@ -1,0 +1,15 @@
+body {
+	overflow-x: hidden;
+}
+
+.list-unstyled {
+	padding-right: 0;
+}
+
+.owl-carousel {
+	direction: ltr;
+}
+
+.owl-carousel .owl-item {
+	direction: rtl;
+}

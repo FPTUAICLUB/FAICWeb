@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+black = "*"
+psycopg-binary = "*"
+psycopg2-binary = "*"
+django-debug-toolbar = "*"
+django-environ = "*"
+gunicorn = "*"
+whitenoise = "*"
+django-sslserver = "*"
+pillow = "*"
+python-dotenv = "*"
+django-ckeditor = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

@@ -1,0 +1,216 @@
+:root {
+  --notech-bdr-color: rgba(255, 255, 255, 0.1);
+  --notech-gray: #aea8b9;
+  --notech-extra: #1b1525;
+}
+
+body,
+.boxed-wrapper .page-wrapper,
+.sidebar__comments-icon,
+.sidebar__post-list li:hover,
+.sidebar__tags-list a,
+.sidebar__category-list li.active a,
+.sidebar__category-list li:hover a {
+  background-color: #100d17;
+}
+
+.stricky-header.main-menu,
+.project-one__content,
+.delivering-it__content,
+.why-choose-one__tab-box .tab-buttons .tab-btn span,
+.blog-one__content,
+.team-one__content,
+.project-two__content,
+.testimonial-page .testimonial-two__single-inner,
+.services-three__content,
+.faq-page__tab-box .tab-buttons .tab-btn .faq-page__tab-button-content,
+.pricing__single,
+.project-details__details,
+.blog-two__carousel.owl-carousel .owl-dots .owl-dot,
+.main-menu {
+  background-color: var(--notech-extra);
+}
+
+.project-two__carousel.owl-carousel .owl-dots .owl-dot,
+.blog-two__carousel.owl-carousel .owl-dots .owl-dot {
+  background-color: #fff;
+  opacity: 0.1;
+}
+
+.project-two__carousel.owl-carousel .owl-dots .owl-dot.active,
+.blog-two__carousel.owl-carousel .owl-dots .owl-dot.active {
+  background-color: var(--notech-base);
+  opacity: 1;
+}
+
+.preloader,
+.megamenu-box__inner,
+.main-menu .main-menu__list li ul,
+.stricky-header .main-menu__list li ul,
+.counter-one__icon,
+.blog-one__single:hover .blog-one__content,
+.services-two__single,
+.testimonial-two__single-inner,
+.main-header__top-inner {
+  background-color: #100d17;
+}
+
+.team-details__social a,
+.blog-details__social-list a,
+.blog-details__pagenation li,
+.sidebar__comments-icon,
+.faq-one-accrodion .accrodion-title h4::before,
+.team-details__education-awards li h4,
+.main-header__top-right-social a {
+  color: var(--notech-gray);
+}
+
+.main-header--one .main-menu__left .main-menu__logo .logo-light,
+.main-menu .main-menu__left .main-menu__logo .logo-light {
+  display: block;
+}
+
+.main-header--one .main-menu__left .main-menu__logo .logo-dark,
+.main-menu .main-menu__left .main-menu__logo .logo-dark {
+  display: none;
+}
+
+.main-menu-three .main-menu__left--two .main-menu__logo .logo-light,
+.main-menu-two .main-menu__left--two .main-menu__logo .logo-light {
+  display: block;
+}
+
+.main-menu-three .main-menu__left--two .main-menu__logo .logo-dark,
+.main-menu-two .main-menu__left--two .main-menu__logo .logo-dark {
+  display: none;
+}
+
+.project-two__title a,
+.why-choose-one__tab-box .tab-buttons .tab-btn span,
+.delivering-it__content-title,
+.services-two__title,
+.counter-two__count-box-inner h3,
+.notech-more__title,
+.sidebar__tags-list a,
+.sidebar__category-list li.active a,
+.sidebar__category-list li:hover a,
+.project-details__details-name,
+.comment-one__title,
+.comment-form__title,
+.comment-one__content h3,
+.contact-details__info li .text a,
+.contact-details__info li .text span,
+.project-details__content-one-title,
+.blog-details__tags span,
+.blog-details__title,
+.project-details__content-two-title,
+.blog-sidebar__delivering-services-title a,
+.project-details__points li .text p,
+.project-details__content-three-title,
+.projectc-details__pagination li p,
+.sidebar__post-content h3 a,
+.blog-sidebar__title a,
+.sidebar__single .sidebar__title,
+.sidebar__comments-text-box p span,
+.services-two__title a,
+.faq-page__tab-button-content .content p,
+.faq-page__tab-faq-content-title h5,
+.faq-one-accrodion .accrodion-title h4,
+.team-details__top-name,
+.pricing__title,
+.team-details__bottom-left-title,
+.team-details__bottom-right-title,
+.consult__points li .text p,
+.blog-two__title a,
+.services-two__btn,
+.team-one__name a,
+.brand-one__title,
+.error-page__form button[type="submit"],
+.service-details__title,
+.service-details__points-title,
+.service-details__points-two-content h4,
+.service-details__benefits-title,
+.error-page__tagline,
+.services-three__title a,
+.blog-one__title a,
+.project-one__title a,
+.tech-services__points li .content h4,
+.get-to-know__it-solutions-text,
+.section-title__title,
+.main-menu__call-number h5 a,
+.testimonial-two__client-name,
+.megamenu-box__text,
+.main-menu .main-menu__list li ul li a,
+.stricky-header .main-menu__list li ul li a,
+.main-menu__search,
+.main-menu .main-menu__list > li.current > a,
+.main-menu .main-menu__list > li:hover > a,
+.stricky-header .main-menu__list > li.current > a,
+.stricky-header .main-menu__list > li:hover > a {
+  color: #ffffff;
+}
+
+.trusted-company__points li .text p,
+.testimonial-one__text,
+.why-choose-one__points li .text p,
+.get-to-know__points li .text p {
+  color: var(--notech-gray);
+}
+
+.testimonial-one-shape img,
+.testimonial-two-shape img,
+.we-stand-shape img,
+.team-one-shape img,
+.get-to-know-shape-1 img {
+  opacity: 0.1;
+}
+
+.blog-one__single:hover .blog-one__content {
+  -webkit-box-shadow: 0px 10px 60px 0px rgba(255, 255, 255, 0.03);
+          box-shadow: 0px 10px 60px 0px rgba(255, 255, 255, 0.03);
+}
+
+.project-two:before {
+  background-image: url(../images/dark/project-bg-1-1.png);
+}
+
+.services-three__content,
+.testimonial-two__single-inner {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-menu-three {
+  background-color: transparent;
+}
+
+.brand-one--home-three {
+  background-image: url(../images/dark/brand-logo-bg-1-1.png);
+}
+
+.services-three__icon {
+  border-color: var(--notech-bdr-color);
+}
+
+.team-one:before {
+  background-image: url(../images/dark/team-bg-1-1-.png);
+}
+
+.message-one .comment-form__input-box input[type="text"],
+.message-one .comment-form__input-box textarea,
+.message-one .comment-form__input-box input[type="email"] {
+  background-color: var(--notech-extra);
+  color: var(--notech-gray);
+}
+
+.testimonial-page .testimonial-two__single-inner {
+  border-color: transparent;
+}
+
+.project-one__btn {
+  background-color: var(--notech-bdr-color);
+}
+
+.carousel-dot-style-1 .owl-dots .owl-dot span {
+  background-color: #fff;
+}
+/*# sourceMappingURL=notech-dark.css.map */
