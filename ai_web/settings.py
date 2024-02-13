@@ -13,6 +13,9 @@ import environ
 import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # 2023-05-02 10:39 phamhung20022015
 # [Note]: Lưu ý các đoạn code được comment ở dưới là optional
